@@ -43,7 +43,7 @@ Pastikan Anda sudah memiliki **Python 3** terinstal di sistem Anda.
 
 1.  **Clone Repositori Ini**
     ```bash
-    git clone [https://github.com/zaidanahnaf/Mīzān.git](https://github.com/zaidanahnaf/Mīzān.git)
+    git clone https://github.com/zaidanahnaf/Mīzān.git
     cd Mīzān
     ```
 
