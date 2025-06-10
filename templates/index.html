@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mīzān - Sistem Analisis Impulsivitas Berbasis AI</title>
+    <!-- <title>Mīzān - Kecerdasan Buatan untuk Keputusan Finansial Bijak</title> -->
+    <!-- <title>Mīzān - Your AI Financial Guardian</title> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mīzān</h1>
+            <p class="tagline">Kecerdasan Buatan untuk Keputusan Finansial yang lebih Bijak</p>
+            <p class="description">Mīzān adalah asisten cerdas yang membantu Anda membuat keputusan finansial yang lebih baik dengan analisis berbasis AI. Dengan Mīzān, Anda dapat mengelola keuangan pribadi dengan lebih bijak dan terencana.</p>
+            <!-- <p class="description">Mīzān membantu Anda membedakan antara keinginan sesaat dan kebutuhan nyata, sehingga Anda dapat mengelola keuangan dengan lebih bijak.</p> -->
+<!--             
+            <p>"Terjebak antara keinginan sesaat dan kebutuhan nyata? Mīzān adalah asisten cerdas yang membantu Anda melihat perbedaannya, memberikan wawasan jernih sebelum Anda membuat keputusan."</p> -->
+        </div>
+        
+        <div class="main-card">
+            <form id="impulsiveForm" class="form-section">
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-shopping-bag"></i> Apa keperluan yang ingin kamu beli?</label>
+                    <input type="text" class="form-input" id="keperluan" placeholder="Contoh: Sewa kos, Jajan kopi" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-wallet"></i> Berapa idealnya budget-mu? (dalam juta)</label>
+                    <input type="number" class="form-input" id="budgetIdeal" placeholder="Contoh: 2.5" step="0.1" min="0.1" max="3.0" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-money-bill-wave"></i> Berapa pengeluaran aktual? (dalam juta)</label>
+                    <input type="number" class="form-input" id="pengeluaranAktual" placeholder="Contoh: 3.2" step="0.1" min="0" max="3.0" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-calendar-alt"></i> Berapa kali belanja ini per bulan?</label>
+                    <input type="number" class="form-input" id="frekuensi" placeholder="Contoh: 4" min="1" max="10" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label"><i class="fas fa-tags"></i> Kategori keperluan ini:</label>
+                    <div class="category-select">
+                        <div class="category-option primer" data-category="primer">
+                            <span class="category-icon">🏠</span><div>Primer</div><small>Kebutuhan pokok</small>
+                        </div>
+                        <div class="category-option tersier" data-category="tersier">
+                            <span class="category-icon">🎉</span><div>Tersier</div><small>Keinginan/hiburan</small>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" id="submitBtn" class="submit-btn"><i class="fas fa-brain"></i> Analisis Tingkat Impulsif</button>
+            </form>
+            
+            <div id="resultSection" class="result-section" style="display: none;">
+                <div id="resultBadge" class="result-badge"></div>
+                <div id="resultText" class="result-text"></div>
+                <div class="action-buttons">
+                    <button class="action-btn save" id="saveBtn"><i class="fas fa-save"></i> Simpan ke Catatan</button>
+                    <button class="action-btn visualize" id="showDetailBtn"><i class="fas fa-chart-area"></i> Lihat Detail AI</button>
+                    <button class="action-btn reset" id="resetBtn"><i class="fas fa-undo"></i> Mulai Lagi</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="history-section">
+            <div class="history-header">
+                <h2 class="history-title"><i class="fas fa-history"></i> Riwayat Transaksi</h2>
+                <div class="history-actions">
+                    <button id="historyAnalysisBtn" class="tool-btn small-btn emerald-btn"><i class="fas fa-chart-pie"></i> Lihat Analisis Riwayat</button>
+                    <button id="clearHistoryBtn" class="tool-btn small-btn danger-btn"><i class="fas fa-trash-alt"></i> Hapus Riwayat</button>
+                </div>
+            </div>
+            <div id="historyAnalysisDashboard" class="dashboard-container" style="display: none;"></div>
+            <div id="historyContent">
+                <div class="empty-state">
+                    <p>Belum ada transaksi yang disimpan.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Uji Coba & Evaluasi Model</h3>
+            <p>Ingin tahu seberapa akurat model AI ini? Jalankan evaluasi menggunakan dataset `budget.csv`.</p>
+            <button id="evaluateModelBtn" class="tool-btn">
+                <i class="fas fa-tasks"></i> Uji Akurasi Model AI
+            </button>
+            <div id="evaluationResultContainer" class="result-container" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div id="plotModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Flask
+scikit-fuzzy
+numpy
+pandas
+matplotlib
+scipy
+networkx
+seaborn
+flask_cors
